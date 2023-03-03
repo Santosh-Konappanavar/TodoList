@@ -9,7 +9,7 @@ body {
 
 .main {
   margin: 5% auto auto auto;
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 5px gray;
@@ -86,9 +86,21 @@ body {
   cursor: pointer;
 }
 
-#btn_dot {
+.btn_dot {
   border: none;
   background: white;
   color: gray;
   cursor: all-scroll;
+  padding: 0 1rem;
+}
+
+.newdesc {
+  border: none;
+  background-color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.edit {
+  cursor: pointer;
 }
