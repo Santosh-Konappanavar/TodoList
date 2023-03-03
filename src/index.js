@@ -1,5 +1,4 @@
 import './index.css';
-
 const listitems = document.getElementById('list_container');
 const arr = [
   {
