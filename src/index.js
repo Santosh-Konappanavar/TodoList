@@ -25,17 +25,16 @@ const editTodo = (i, descr) => {
 };
 
 const clearCompleted = () => {
-  const itemsToDelete = [];
+  const newItems = [];
 
   todo.getAll().forEach((item) => {
-    if (item.completed) {
-      itemsToDelete.push(item);
+    if (!item.completed) {
+      newItems.push(item);
     }
   });
 
-  itemsToDelete.forEach((item) => {
-    todo.delete(item.index);
-  });
+  todo.data = newItems;
+  todo.updateIndexes();
 
   localStorage.setItem('mydata', JSON.stringify(todo.getAll()));
   window.location.reload();
