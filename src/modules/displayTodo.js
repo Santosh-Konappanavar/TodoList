@@ -1,6 +1,11 @@
 export default class Todo {
   constructor() {
-    this.data = JSON.parse(localStorage.getItem('mydata') || '[]');
+    const data = JSON.parse(localStorage.getItem('mydata') || '[]');
+    this.data = data.map((data, index) => ({
+      index,
+      description: data.description,
+      completed: data.completed || false,
+    }));
   }
 
   add(description) {
@@ -15,16 +20,17 @@ export default class Todo {
   }
 
   delete(index) {
-    this.data.splice(index - 1, 1);
+    this.data.splice(index, 1);
+    this.data.forEach((data, index) => {
+      data.index = index;
+    });
     this.updateIndexes();
     localStorage.setItem('mydata', JSON.stringify(this.data));
   }
 
   update(index, description) {
-    const item = this.data[index - 1];
-    item.description = description;
+    this.data[index].description = description;
     localStorage.setItem('mydata', JSON.stringify(this.data));
-    return item;
   }
 
   updateIndexes() {
@@ -33,11 +39,16 @@ export default class Todo {
     });
   }
 
-  get(index) {
-    return this.data[index - 1];
+  get() {
+    return this.data;
   }
 
   getAll() {
     return this.data;
+  }
+
+  toggleCompleted(index) {
+    this.data[index].completed = !this.data[index].completed;
+    localStorage.setItem('mydata', JSON.stringify(this.data));
   }
 }
