@@ -94,13 +94,13 @@ body {
   padding: 0 1rem;
 }
 
+.edit {
+  cursor: pointer;
+}
+
 .newdesc {
   border: none;
   background-color: white;
   font-size: 15px;
   outline: none;
-}
-
-.edit {
-  cursor: pointer;
 }
