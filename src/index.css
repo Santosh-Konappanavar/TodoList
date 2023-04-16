@@ -90,7 +90,7 @@ body {
   border: none;
   background: white;
   color: gray;
-  cursor: all-scroll;
+  cursor: pointer;
   padding: 0 1rem;
 }
 

@@ -58,7 +58,7 @@ const renderTodos = () => {
         </div>
         <button type="button" class="btn_dot">
           <span class="material-symbols-outlined">
-            more_vert
+               delete
           </span>
         </button>
       `;
